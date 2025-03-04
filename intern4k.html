@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vogue Magazine Cover</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #ffc7c7; /* Red background */
+        }
+
+        .magazine-cover {
+            position: relative;
+            width: 400px;
+            height: 600px;
+            background: red; /* Keep red background */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .cover-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0; /* Ensure image is behind text */
+        }
+
+        .title {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 2px;
+            z-index: 1;
+        }
+
+        .issue {
+            position: absolute;
+            top: 90px;
+            right: 20px;
+            font-size: 14px;
+            color: white;
+            z-index: 1;
+        }
+
+        .headline {
+            position: absolute;
+            top: 180px;
+            left: 20px;
+            text-align: left;
+            z-index: 1;
+        }
+
+        .small-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: pink;
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .feature {
+            position: absolute;
+            top: 500px;
+            left: 20px;
+            text-align: left;
+            font-size: 16px;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        .interview {
+            font-size: 14px;
+            font-weight: normal;
+            display: block;
+        }
+
+        .special {
+            position: absolute;
+            bottom: 120px;
+            right: 20px;
+            font-size: 14px;
+            z-index: 1;
+        }
+
+        .brave {
+            position: absolute;
+            bottom: 80px;
+            right: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: pink;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine-cover">
+        <!-- Ensure the image file path is correct -->
+        <img src="data:image/jpeg;base64,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" alt="Vogue Cover" class="cover-image"> 
+        
+        <h1 class="title">VOGUE</h1>
+        <div class="headline">
+            <span class="small-text">THE RISE OF</span>
+            <span class="name">Rihanna</span>
+        </div>
+
+        <p class="feature">MARGOT ROBBIE <br><span class="interview">interviewed by Quentin Tarantino</span></p>
+        <p class="brave">BRAVE <br>NEW <br>SEASON</p>
+
+        <div class="barcode"></div>
+    </div>
+</body>
+</html>
